@@ -18,7 +18,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     if (value == null) {
       throw new IllegalArgumentException("A null value is not allowed to be added.");
     }
-    super.add(value);
+    super.add(index, value);
   }
 
   public T set(int index, T value) {
