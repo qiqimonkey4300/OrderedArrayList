@@ -30,8 +30,10 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     }
   }
 
-  //public boolean add(T value) {
-  //}
+  public boolean add(T value) {
+    super.add(value);
+    sorting(); return true;
+  }
 
   //public void add(int index, T value) {
   //}
