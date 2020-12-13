@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.*;
 
 public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T> {
   public OrderedArrayList() {
@@ -41,9 +42,10 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public T set(int index, T value) {
+    if (value == null) throw new IllegalArgumentException("A null value is not allowed to be added.");
     T x = super.remove(index);
-    super.add(index, value);
-    sorting();
+    add(index, value);
+    //sorting();
     return x;
   }
 }
