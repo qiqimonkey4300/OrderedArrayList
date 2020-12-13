@@ -11,18 +11,18 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   private void sorting() {
     int min = 0;
-    T temp = super.get(0);
+    T temp = get(0);
     int x = 0;
     for (int i = 0; i < size(); i++) {
       min = i;
       for (int j = i + 1; j < size(); j++) {
-        if (super.get(j).compareTo(super.get(i)) < 0) {
+        if (get(j).compareTo(get(i)) < 0) {
           min = j;
           x = 1;
         }
       }
-      temp = super.get(i);
-      set (i, super.get(min));
+      temp = get(i);
+      super.set (i, get(min));
       super.set(min, temp);
       if (x != 0) {
         i--; x = 0;
@@ -40,6 +40,10 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     sorting();
   }
 
-  //public T set(int index, T value) {
-  //}
+  public T set(int index, T value) {
+    T x = super.remove(index);
+    super.add(index, value);
+    sorting();
+    return x;
+  }
 }
